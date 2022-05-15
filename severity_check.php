@@ -14,7 +14,7 @@ REQUIRE_ONCE "view/view.php";
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.6/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <title>edit profile</title>
+    <title>Measurements Form</title>
 </head>
 
 <body>
@@ -60,8 +60,6 @@ REQUIRE_ONCE "view/view.php";
             </nav>
             <?php
 $view= new view;
-$view->edit();
+$view->check_severity();
 ?>
                   </body>
-                      
-

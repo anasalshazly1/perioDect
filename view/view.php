@@ -244,6 +244,42 @@ public function edit()
     echo $str;
 }
 
+public function check_severity()
+{
+    $str='  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 bg-light">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1> Please enter the correct measurements to check severity </h1>
+    </div>
+                 <div class="col-md-10 col-lg-10 ml-auto">
+    <!-- Registeration Form -->
+    <form id="register-form" method="POST" action="controller/usercontroller.php?action=submit">
+        
+        
+        <div class="form-group col-lg-7 mb-2">
+        <input type="text" class="form-control" name="CAL" placeholder="Clinical Attachement Loss" required>
+        </div>    
+        <div class="form-group col-lg-7 mb-2">
+            <input type="text" name="BL" class="form-control" placeholder="Bone Loss" required>
+        </div>
+        <div class="form-group col-lg-7 mb-2">
+            <input type="text" name="TL" class="form-control" placeholder="Teeth Loss" required>
+        </div>
+            
+        
+        <div class="form-group col-lg-7 mb-2">
+            <input type="text" class="form-control" name="PD" placeholder="Probing Depth" required>
+        </div>
+        
+        <div class="form-group col-lg-7  mb-2">
+            <input type="submit" name="register" class="btn btn-dark btn-block py-2 font-weight-bold" value="Confirm" >
+        </div>
+       
+    
+    </form>
+</div>';
+    echo $str;
+}
+
 public function addDentists()
 {
     $str='  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 bg-light">
