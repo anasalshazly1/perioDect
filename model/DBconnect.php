@@ -18,7 +18,7 @@
   		  $this->connection = new mysqli($this->host, $this->username,$this->password, $this->database);
 
   		if(mysqli_connect_error()) {
-  			trigger_error("Failed to conenct to to MySQL: " .mysql_connect_error(),E_USER_ERROR);
+  			trigger_error("Failed to conenct to to MySQL: " .mysqli_connect_error(),E_USER_ERROR);
   		}
   	}
 
