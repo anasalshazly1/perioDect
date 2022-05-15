@@ -1,5 +1,5 @@
 <?php
-REQUIRE_ONCE "view/view.php";
+REQUIRE_ONCE "../view/view.php";
 ?>
 <!doctype html>
 <html lang="en">
