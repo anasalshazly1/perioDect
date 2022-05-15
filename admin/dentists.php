@@ -1,6 +1,6 @@
 <?php
-REQUIRE_ONCE "model/users.php";
-REQUIRE_ONCE "view/view.php";
+REQUIRE_ONCE "../model/users.php";
+REQUIRE_ONCE "../view/view.php";
 
 
 ?>

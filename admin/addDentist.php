@@ -2,7 +2,7 @@
 <!doctype html>
 <html lang="en">
 <?php
-REQUIRE_ONCE "view/view.php";
+REQUIRE_ONCE "../view/view.php";
 ?>
 <head>
     <!-- Required meta tags -->
