@@ -69,6 +69,7 @@ class usercontroller{
         }
     }
 
+
     
 
 }
@@ -97,7 +98,7 @@ else if($_GET['action']=='edit')
 if($_GET['action'] =='add')
 {
     $cont->add();
-    header("location: ../dentists.php");
+    header("location: ../doctor/picturetesting.php");
     
 
 }

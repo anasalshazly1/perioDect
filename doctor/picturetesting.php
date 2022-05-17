@@ -8,7 +8,7 @@ REQUIRE_ONCE "../view/view.php";
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="../admin.css">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
@@ -56,8 +56,13 @@ REQUIRE_ONCE "../view/view.php";
                 </div>
                 <div class="container col-md-6">
                     <div class="mb-5">
-                        <input class="form-control" type="file" id="formFile" onchange="preview()">
-                        <button onclick="clearImage()" class="btn btn-primary mt-3">Check Image</button>
+                        <form action="../controller/patientcontroller.php?action=upload" method="post" enctype="multipart/form-data">
+                            <input name="imageupload" class="form-control" type="file" id="formFile" onchange="preview()">
+                            <!-- <button name="save" class="btn btn-primary mt-3">Check Image</button> -->
+                            <input type="submit" name="save" value="Upload" class="btn btn-primary mt-3">
+                        </form>
+                        
+                        <button onclick="window.location.href='severity_check.php'" class="btn btn-primary mt-3">Take measurement</button>
                     </div>
                     <img id="frame" src="" class="img-fluid" />
                 </div>
@@ -69,7 +74,7 @@ REQUIRE_ONCE "../view/view.php";
                 function clearImage() {
                     document.getElementById('formFile').value = null;
                     frame.src = "";
-                }
+                } 
             </script>
         </div>
     </div>

@@ -3,7 +3,7 @@
   	private $host = "localhost";
   	private $username = "root";
   	private $password = "";
-  	private $database = "clinic";
+  	private $database = "graduation";
   	private $connection;
   	private static $instance;
 

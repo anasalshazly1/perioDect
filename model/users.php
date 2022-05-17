@@ -9,7 +9,6 @@ class users{
     public $password;
     public $UserType;
     
-
     public function Adduser(){
       $db = dbconnect::getInstance();
       $mysqli = $db->getConnection();
@@ -84,6 +83,15 @@ class users{
         $result= $mysqli->query($query);
         return $result;
     }
+
+    public function UploadPicture(){
+        $db = dbconnect::getInstance();
+        $mysqli = $db->getConnection();
+        $query = "INSERT INTO image (`ImageId`,`ImagePath`,`PatientId`,`ImageDate`)
+        VALUES (null,'$this->fname','$this->lname','$this->email','$this->password')";
+        $result= $mysqli->query($query);
+        return $result;
+      }
 
 
 

@@ -10,7 +10,7 @@ REQUIRE_ONCE "../view/view.php";
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="../admin.css">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
@@ -26,43 +26,12 @@ REQUIRE_ONCE "../view/view.php";
         <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">PerioDect</a>
 
 
-    </header>
-    
+    </header>    
     <div class="container-fluid">
         <div class="row">
             <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse ">
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
-
-                        <!-- <li class="nav-item  mb-2">
-                            <a class="nav-link  text-white" href="adminhome.php">
-                            <i class="bi bi-calendar3"></i>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar3" viewBox="0 0 16 16">
-                                  <path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1
-                                   .857H2c-.552 0-1-.384-1-.857V3.857z"/>
-                                  <path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 
-                                    1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 
-                                    2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-                                </svg>
-                                Appointments
-                            </a>
-                        </li>
-                        <li class="nav-item  mb-2">
-                            <a class="nav-link  text-white" href="add_slots.php">
-                              <i class="bi bi-plus-circle"></i>
-                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                 <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                              </svg>
-                                Add time slots
-                            </a>
-                        </li> -->
-                        <li class="nav-item  mb-2">
-                            <a class="nav-link  text-white" href="dentists.php">
-                                <i class="fas fa-users"></i>
-                                Dentists
-                            </a>
-                        </li>
                         <li class="nav-item  mb-2">
                             <a class="nav-link  text-white" href="patients.php">
                                 <i class="fas fa-users"></i>
@@ -70,14 +39,14 @@ REQUIRE_ONCE "../view/view.php";
                             </a>
                         </li>
                         <li class="nav-item  mb-2">
-                            <a class="nav-link  text-white" href="reports.php">
-                              <i class="fas fa-stethoscope"></i>
+                            <a class="nav-link  text-white" href="adminReports.php">
+                              <i class="fas fa-file"></i>
                                 Reports
                             </a>
                         </li>
                         <li class="nav-item  mb-2">
                             <a class="nav-link text-white" href="editaccount.php">
-                             <i class="fa fa-user"></i>
+                             <i class="fa fa-edit"></i>
                               Edit Account
                             </a>
                         </li>
