@@ -197,7 +197,7 @@ public function viewdoctors($users)
                     </table>
                 </div>
                 <tfoot>
-                  <a class="btn btn-dark" href="addDentist.php" role="button">add dentist</a>
+                  <a class="btn btn-dark" href="admin/addDentist.php" role="button">add dentist</a>
                     
                 </tfoot>
             </div>
@@ -252,6 +252,50 @@ public function check_severity()
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1> Please enter the correct measurements to check severity </h1>
     </div>
+    <div class="dropdown">
+    <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      Tooth Selection
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li class="dropdown-header">Upper Right</li>
+      <li><a class="dropdown-item" href="#">1</a></li>
+      <li><a class="dropdown-item" href="#">2</a></li>
+      <li><a class="dropdown-item" href="#">3</a></li>
+      <li><a class="dropdown-item" href="#">4</a></li>
+      <li><a class="dropdown-item" href="#">5</a></li>
+      <li><a class="dropdown-item" href="#">6</a></li>
+      <li><a class="dropdown-item" href="#">7</a></li>
+      <li><a class="dropdown-item" href="#">8</a></li>
+      <li class="dropdown-header">Upper Left</li>
+      <li><a class="dropdown-item" href="#">1</a></li>
+      <li><a class="dropdown-item" href="#">2</a></li>
+      <li><a class="dropdown-item" href="#">3</a></li>
+      <li><a class="dropdown-item" href="#">4</a></li>
+      <li><a class="dropdown-item" href="#">5</a></li>
+      <li><a class="dropdown-item" href="#">6</a></li>
+      <li><a class="dropdown-item" href="#">7</a></li>
+      <li><a class="dropdown-item" href="#">8</a></li>
+      <li class="dropdown-header">Bottom Right</li>
+      <li><a class="dropdown-item" href="#">1</a></li>
+      <li><a class="dropdown-item" href="#">2</a></li>
+      <li><a class="dropdown-item" href="#">3</a></li>
+      <li><a class="dropdown-item" href="#">4</a></li>
+      <li><a class="dropdown-item" href="#">5</a></li>
+      <li><a class="dropdown-item" href="#">6</a></li>
+      <li><a class="dropdown-item" href="#">7</a></li>
+      <li><a class="dropdown-item" href="#">8</a></li>
+      <li class="dropdown-header">Bottom Left</li>
+      <li><a class="dropdown-item" href="#">1</a></li>
+      <li><a class="dropdown-item" href="#">2</a></li>
+      <li><a class="dropdown-item" href="#">3</a></li>
+      <li><a class="dropdown-item" href="#">4</a></li>
+      <li><a class="dropdown-item" href="#">5</a></li>
+      <li><a class="dropdown-item" href="#">6</a></li>
+      <li><a class="dropdown-item" href="#">7</a></li>
+      <li><a class="dropdown-item" href="#">8</a></li>
+    </ul>
+  </div>
+    
                  <div class="col-md-10 col-lg-10 ml-auto">
     <!-- Registeration Form -->
     <form id="register-form" method="POST" action="controller/usercontroller.php?action=submit">
