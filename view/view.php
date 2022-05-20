@@ -256,7 +256,7 @@ public function check_severity()
     <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
       Tooth Selection
     </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <div class="dropdown-menu pre-scrollable" aria-labelledby="dropdownMenuButton"> 
       <li class="dropdown-header">Upper Right</li>
       <li><a class="dropdown-item" href="#">1</a></li>
       <li><a class="dropdown-item" href="#">2</a></li>
@@ -276,6 +276,7 @@ public function check_severity()
       <li><a class="dropdown-item" href="#">7</a></li>
       <li><a class="dropdown-item" href="#">8</a></li>
       <li class="dropdown-header">Bottom Right</li>
+      
       <li><a class="dropdown-item" href="#">1</a></li>
       <li><a class="dropdown-item" href="#">2</a></li>
       <li><a class="dropdown-item" href="#">3</a></li>
