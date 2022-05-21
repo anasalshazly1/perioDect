@@ -49,6 +49,9 @@ class patients{
         $query = "INSERT INTO image (`ImageDate`,`imgPath`,`PatientID`)
         VALUES ('$this->ImageDate','$this->imgpath','$this->PatientID')";
         $result= $mysqli->query($query);
+        $command = escapeshellcmd('C:\xampp\htdocs\perioDect\api\main.py images');
+        $output = shell_exec($command);
+        echo $output;
         return $result;
       }
 

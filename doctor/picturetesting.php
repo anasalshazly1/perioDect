@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <?php
+session_start();
 REQUIRE_ONCE "../view/view.php";
 ?>
 <head>
@@ -56,6 +57,14 @@ REQUIRE_ONCE "../view/view.php";
                 </div>
                 <div class="container col-md-6">
                     <div class="mb-5">
+                        <?php
+                            if(isset($_SESSION['result'])){
+                                ?>
+                                <p><?= $_SESSION["result"]; ?></p>
+                                <?php
+                                unset($_SESSION['result']);
+                            }
+                        ?>
                         <form action="../controller/patientcontroller.php?action=upload" method="post" enctype="multipart/form-data">
                             <input name="imageupload" class="form-control" type="file" id="formFile" onchange="preview()">
                             <!-- <button name="save" class="btn btn-primary mt-3">Check Image</button> -->

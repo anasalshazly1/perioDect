@@ -8,6 +8,7 @@ class users{
     public $email;
     public $password;
     public $UserType;
+    public $page;
     
     public function Adduser(){
       $db = dbconnect::getInstance();

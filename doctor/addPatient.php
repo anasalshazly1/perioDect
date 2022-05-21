@@ -47,7 +47,6 @@
                     <h1 class="h2">Add Patient</h1>
                 </div>
                 <div class="col-md-10 col-lg-10 ml-auto">
-                    <!-- Registeration Form -->
                     <form id="register-form" method="POST" action="../controller/patientcontroller.php?action=add">
                         <div class="form-group col-lg-7 mb-2">
                             <input type="text" name="name" class="form-control" placeholder="First Name" required>
@@ -72,8 +71,4 @@
             </main>
         </div>
     </div>
-    <?php
-    // $view= new view;
-    // $view->addPatient();
-    ?>
 </body>

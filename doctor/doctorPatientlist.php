@@ -69,7 +69,7 @@
                             </div>
                             <div class="text-center">
                                 <tfoot>
-                                    <a class="btn btn-dark" href="addPatient.php" role="button">add dentist</a>
+                                    <a class="btn btn-dark" href="addPatient.php" role="button">add a new patient</a>
                                 </tfoot>
                             </div>
                         </div>

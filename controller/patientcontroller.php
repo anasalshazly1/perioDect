@@ -22,12 +22,18 @@ class patientcontroller{
         $patient = new patients;
         $photo = $_FILES['imageupload']['name'];
 		$patient->ImageDate= date('Y-m-d');
-		$patient->PatientID= $_REQUEST['password'];
+		// $patient->PatientID= $_REQUEST['password'];
         move_uploaded_file($_FILES['imageupload']['tmp_name'], '../images/'.$photo);
+        $output = shell_exec("conda activate base2 & python ../api/main.py $photo 2>&1");
+        $output = (preg_split('/\s|\r\n|\r|\n/',$output));
+        $output = array_filter($output,function($value){
+            return $value != "";
+        });
+       
 		$patient->imgpath = $photo;
-
+        
         $patient->UploadPicture();
-            
+        return end($output);
     }
 
     
@@ -37,7 +43,8 @@ $cont= new patientcontroller;
 
 if($_GET['action']=='upload')
 {
-    $cont->upload();
+    $output = $cont->upload();
+    $_SESSION["result"] = $output;
     header("location: ../doctor/picturetesting.php");
 }
 

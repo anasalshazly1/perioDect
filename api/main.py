@@ -1,21 +1,24 @@
-import os
+import glob, cv2,os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
+
+import matplotlib.image as mpimg
 import numpy as np
-import cv2
-import glob
+from tensorflow import keras
+from keras.layers import Embedding
 from keras.applications.vgg19 import VGG19
-from tensorflow.keras.layers import Dense
-from tensorflow.keras.models import Model
-from keras.layers import GlobalMaxPooling2D
-
+from tensorflow.keras.models import Sequential, Model
+from tensorflow.keras.layers import Input, Conv2D, Activation, MaxPool2D, Dense, Dropout, Flatten, BatchNormalization, GlobalAveragePooling2D, Embedding,GlobalMaxPooling2D
+from flask import request
+from silence_tensorflow import silence_tensorflow
+silence_tensorflow()
 from flask import Flask, request
+import sys
 
-app = Flask(__name__)
 
 if __name__ == '__main__':
 
     image_size = 128, 128
     base_model = VGG19(include_top=False)
-    print('----------------------------- ', len(base_model.layers), '---------------------------')
     x = base_model.output
     x = GlobalMaxPooling2D()(x)
     x = Dense(1024, activation='relu')(x)
@@ -27,9 +30,8 @@ if __name__ == '__main__':
         layer.trainable = True
 
     weights = []
-    weights = glob.glob("model_weights/*")
+    weights = glob.glob("../api/model_weights/*")
     weights.sort(reverse=True)
-    print(weights)
 
 
     def load_existing_model_weights():
@@ -44,7 +46,6 @@ if __name__ == '__main__':
 
     def load_image(file):
         try:
-            print(file)
             img = cv2.imread(file)
             img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
             img = cv2.resize(img, image_size)
@@ -53,27 +54,22 @@ if __name__ == '__main__':
             print("None")
 
 
-    @app.route('/predict', methods=['GET'])
     def classify_teeth():
         if (model):
-            try:
-                file_loc = os.path.join("../public/avatars", request.args['name'])
-                test_image = load_image(file_loc)
-                img = np.asarray(test_image)
-                img = img / 255.0
-                img = img.reshape(-1, 128, 128, 3)
-                prediction = model.predict(img)
+            file_loc = os.path.join("../images", sys.argv[1])
+            test_image = load_image(file_loc)
+            img = np.asarray(test_image)
+            img = img / 255.0
+            img = img.reshape(-1, 128, 128, 3)
+            prediction = model.predict(img)
 
-                if (np.argmax(model.predict(img), axis=-1) == [1]):
-                    return "Periodontal"
-                elif (np.argmax(model.predict(img), axis=-1) == [0]):
-                    return "Non-Periodontal"
-            except:
-                return ('No model here to use')
+            if (np.argmax(model.predict(img), axis=-1) == [1]):
+                return "Periodontal"
+            elif (np.argmax(model.predict(img), axis=-1) == [0]):
+                return "Non-Periodontal"
+            
 
 
     cls = classify_teeth()
 
     print(cls)
-
-    app.run(debug=True)
