@@ -2,7 +2,12 @@
 import numpy as np
 import skfuzzy as fuzz
 import skfuzzy.control
+import future
 from skfuzzy import *
+import os
+import sys
+import mysql.connector
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 
 class FuzzyLogic:
@@ -633,11 +638,12 @@ class FuzzyLogic:
         perio_ctrl_sil.input['TL'] = tl_val
         perio_ctrl_sil.input['PD'] = pd_val
         perio_ctrl_sil.compute()
+        print("--Results--")
         self.res = perio_ctrl_sil.print_state()
         self.output = list(perio_ctrl_sil.output.items())[0][1]
-        print(self.output)
-        print(perio_ctrl_sil.output)
-        print(self.res)
+        # print(self.output)
+        # print(perio_ctrl_sil.output)
+        # print(self.res)
 
 if __name__ == '__main__':
     fuzzy_system = FuzzyLogic(0, 7, 0, 100,-1,15, 0, 15, 0, 100)
@@ -649,7 +655,12 @@ if __name__ == '__main__':
     fuzzy_system.make_variables()
     fuzzy_system.make_member_functions()
     fuzzy_system.make_rules()
-    fuzzy_system.simulate(4,16,15,15)
+    
+    x= int(sys.argv[1])
+    y= int(sys.argv[2])
+    z= int(sys.argv[3])
+    c= int(sys.argv[4])
+    fuzzy_system.simulate(x,y,z,c)
         
         #RULES TO BE CHECKED WITH EXPERTS
         # rule7 = skfuzzy.control.Rule(self.__cal['low'] &

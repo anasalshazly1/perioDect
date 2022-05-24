@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en">
 <?php
-session_start();
 REQUIRE_ONCE "../view/view.php";
 ?>
 <head>

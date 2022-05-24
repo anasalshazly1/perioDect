@@ -1,6 +1,7 @@
 <?php
 
 REQUIRE_ONCE ("DBconnect.php");
+session_start();
 class patients{
     public $id;
     public $fname;
@@ -19,15 +20,26 @@ class patients{
     public $imgpath;
     public $ImageDate;
     public $PatientID;
+    public $CAL;
+    public $BONELOSS;
+    public $TEETHLOSS;
+    public $PD;
     
     
 
     public function Addpatient(){
       $db = dbconnect::getInstance();
       $mysqli = $db->getConnection();
-      $query = "INSERT INTO patient (`email`,`fname`,`lname`,`age`,`phonenumber`,`ut_id`)
-      VALUES ('$this->email','$this->fname','$this->lname','$this->age','$this->phonenumber','2')";
+      $query = "INSERT INTO patient (`email`,`fname`,`lname`,`ut_id`,`age`,`phonenumber`)
+      VALUES ('$this->email','$this->fname','$this->lname','2','$this->age','$this->phonenumber')";
       $result= $mysqli->query($query);
+      if ($mysqli->query($query) === TRUE) {
+        $last_id = $mysqli->insert_id;
+        $_SESSION['patientid'] = $last_id;
+        echo "New record created successfully. Last inserted ID is: " . $last_id;
+      } else {
+        echo "Error: " . $query . "<br>" . $mysqli->error;
+      }
       return $result;
     }
 
@@ -45,7 +57,7 @@ class patients{
     public function UploadPicture(){
         $db = dbconnect::getInstance();
         $mysqli = $db->getConnection();
-        
+        $this->PatientID = $_SESSION['patientid'];
         $query = "INSERT INTO image (`ImageDate`,`imgPath`,`PatientID`)
         VALUES ('$this->ImageDate','$this->imgpath','$this->PatientID')";
         $result= $mysqli->query($query);
@@ -54,6 +66,15 @@ class patients{
         echo $output;
         return $result;
       }
+
+    public function CheckMeasurements(){
+      $db = dbconnect::getInstance();
+      $mysqli = $db->getConnection();
+      $query = "INSERT INTO measurements(`cal`,`boneloss`,`teethloss`,`pd`)
+      VALUES ('$this->CAL','$this->BONELOSS','$this->TEETHLOSS','$this->PD')";
+      $result= $mysqli->query($query);
+      return $result;
+    }
 
 
 

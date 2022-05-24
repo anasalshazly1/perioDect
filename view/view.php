@@ -2,6 +2,7 @@
 use FTP\Connection;
 // Include the database configuration file  
 // require_once 'DBconnect.php';
+session_start();
 class view{
 
 public function signup()
@@ -246,87 +247,6 @@ public function edit()
     echo $str;
 }
 
-public function check_severity()
-{
-    $str='  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 bg-light">
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1> Please enter the correct measurements to check severity </h1>
-    </div>
-    <div class="dropdown">
-    <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-      Tooth Selection
-    </button>
-    <div class="dropdown-menu pre-scrollable" aria-labelledby="dropdownMenuButton"> 
-      <li class="dropdown-header">Upper Right</li>
-      <li><a class="dropdown-item" href="#">1</a></li>
-      <li><a class="dropdown-item" href="#">2</a></li>
-      <li><a class="dropdown-item" href="#">3</a></li>
-      <li><a class="dropdown-item" href="#">4</a></li>
-      <li><a class="dropdown-item" href="#">5</a></li>
-      <li><a class="dropdown-item" href="#">6</a></li>
-      <li><a class="dropdown-item" href="#">7</a></li>
-      <li><a class="dropdown-item" href="#">8</a></li>
-      <li class="dropdown-header">Upper Left</li>
-      <li><a class="dropdown-item" href="#">1</a></li>
-      <li><a class="dropdown-item" href="#">2</a></li>
-      <li><a class="dropdown-item" href="#">3</a></li>
-      <li><a class="dropdown-item" href="#">4</a></li>
-      <li><a class="dropdown-item" href="#">5</a></li>
-      <li><a class="dropdown-item" href="#">6</a></li>
-      <li><a class="dropdown-item" href="#">7</a></li>
-      <li><a class="dropdown-item" href="#">8</a></li>
-      <li class="dropdown-header">Bottom Right</li>
-      
-      <li><a class="dropdown-item" href="#">1</a></li>
-      <li><a class="dropdown-item" href="#">2</a></li>
-      <li><a class="dropdown-item" href="#">3</a></li>
-      <li><a class="dropdown-item" href="#">4</a></li>
-      <li><a class="dropdown-item" href="#">5</a></li>
-      <li><a class="dropdown-item" href="#">6</a></li>
-      <li><a class="dropdown-item" href="#">7</a></li>
-      <li><a class="dropdown-item" href="#">8</a></li>
-      <li class="dropdown-header">Bottom Left</li>
-      <li><a class="dropdown-item" href="#">1</a></li>
-      <li><a class="dropdown-item" href="#">2</a></li>
-      <li><a class="dropdown-item" href="#">3</a></li>
-      <li><a class="dropdown-item" href="#">4</a></li>
-      <li><a class="dropdown-item" href="#">5</a></li>
-      <li><a class="dropdown-item" href="#">6</a></li>
-      <li><a class="dropdown-item" href="#">7</a></li>
-      <li><a class="dropdown-item" href="#">8</a></li>
-    </ul>
-  </div>
-    
-                 <div class="col-md-10 col-lg-10 ml-auto">
-    <!-- Registeration Form -->
-    <form id="register-form" method="POST" action="controller/usercontroller.php?action=submit">
-        
-        
-        <div class="form-group col-lg-7 mb-2">
-        <input type="text" class="form-control" name="CAL" placeholder="Clinical Attachement Loss" required>
-        </div>    
-        <div class="form-group col-lg-7 mb-2">
-            <input type="text" name="BL" class="form-control" placeholder="Bone Loss" required>
-        </div>
-        <div class="form-group col-lg-7 mb-2">
-            <input type="text" name="TL" class="form-control" placeholder="Teeth Loss" required>
-        </div>
-            
-        
-        <div class="form-group col-lg-7 mb-2">
-            <input type="text" class="form-control" name="PD" placeholder="Probing Depth" required>
-        </div>
-        
-        <div class="form-group col-lg-7  mb-2">
-            <input type="submit" name="register" class="btn btn-dark btn-block py-2 font-weight-bold" value="Confirm" >
-        </div>
-       
-    
-    </form>
-</div>';
-    echo $str;
-}
-
 public function addDentists()
 {
     $str='  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 bg-light">
@@ -336,17 +256,12 @@ public function addDentists()
                  <div class="col-md-10 col-lg-10 ml-auto">
     <!-- Registeration Form -->
     <form id="register-form" method="POST" action="controller/usercontroller.php?action=add">
-        
-        
-            
         <div class="form-group col-lg-7 mb-2">
             <input type="text" name="name" class="form-control" placeholder="First Name" required>
         </div>
         <div class="form-group col-lg-7 mb-2">
             <input type="text" name="lname" class="form-control" placeholder="Last Name" required>
         </div>
-            
-        
         <div class="form-group col-lg-7 mb-2">
             <input type="email" class="form-control" name="email" placeholder="Email address" required>
         </div>
@@ -364,44 +279,6 @@ public function addDentists()
     </form>
 </div>';
     echo $str;
-}
-
-public function upload_image(){
-//     $database = new Database();
-//     $db = $database->getConnection();
-//     $status = $statusMsg = ''; 
-// if(isset($_POST["submit"])){ 
-//     $status = 'error'; 
-//     if(!empty($_FILES["image"]["name"])) { 
-//         // Get file info 
-//         $fileName = basename($_FILES["image"]["name"]); 
-//         $fileType = pathinfo($fileName, PATHINFO_EXTENSION); 
-         
-//         // Allow certain file formats 
-//         $allowTypes = array('jpg','png','jpeg','gif'); 
-//         if(in_array($fileType, $allowTypes)){ 
-//             $image = $_FILES['image']['tmp_name']; 
-//             $imgContent = addslashes(file_get_contents($image)); 
-         
-//             // Insert image content into database 
-//             $insert = $db->query("INSERT into images (image, created) VALUES ('$imgContent', NOW())"); 
-             
-//             if($insert){ 
-//                 $status = 'success'; 
-//                 $statusMsg = "File uploaded successfully."; 
-//             }else{ 
-//                 $statusMsg = "File upload failed, please try again."; 
-//             }  
-//         }else{ 
-//             $statusMsg = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.'; 
-//         } 
-//     }else{ 
-//         $statusMsg = 'Please select an image file to upload.'; 
-//     } 
-// } 
- 
-// // Display status message 
-// echo $statusMsg;
 }
 
 public function addSlots(){
