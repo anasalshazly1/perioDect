@@ -7,6 +7,7 @@ REQUIRE_ONCE "../view/view.php";
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
@@ -102,19 +103,82 @@ REQUIRE_ONCE "../view/view.php";
                 </div>
                 <div class="col-md-10 col-lg-10 ml-auto">
                     <form id="register-form" method="POST" action="../controller/patientcontroller.php?action=check">
+                        
                         <div class="form-group col-lg-7 mb-2">
-                            <input type="text" class="form-control" name="CAL" placeholder="Clinical Attachement Loss" required>
+                            <input type="number" min="1"max="7" class="form-control" name="CAL" id="speechToText" placeholder="Clinical Attachement Loss 1-7"  onclick="record()" required>
+                            
                         </div> 
+                        
+                        <script>
+                           // if (isNaN(CAL) || CAL < 7|| CAL > 0)
+//{
+  //  alert("Please complete all required fields - Amount you wish to save");
+    //return false;
+//}
+
+                              function record() {
+            var recognition = new webkitSpeechRecognition();
+            recognition.lang = "en-US";
+
+            recognition.onresult = function (event) {
+                // console.log(event);
+                document.getElementById('speechToText').value = event.results[0][0].transcript;
+            }
+            recognition.start();
+
+        }
+           </script>
                         <input type="hidden" class="form-control" name ="patientid" value="'.$_SESSION['patientid'].'">   
                         <div class="form-group col-lg-7 mb-2">
-                            <input type="text" name="BL" class="form-control" placeholder="Bone Loss" required>
+                            <input type="number" min="1"max="100"name="BL" class="form-control" id="speech"placeholder="Bone Loss 1-100" onclick="rec()" required>
                         </div>
+                            <script>
+        function rec() {
+            var recognition = new webkitSpeechRecognition();
+            recognition.lang = "en-US";
+
+            recognition.onresult = function (event) {
+                // console.log(event);
+                document.getElementById('speech').value = event.results[0][0].transcript;
+            }
+            recognition.start();
+
+        }
+    </script>
                         <div class="form-group col-lg-7 mb-2">
-                            <input type="text" name="TL" class="form-control" placeholder="Teeth Loss" required>
+                            <input type="number"min="0"max="15" name="TL" class="form-control" id="spe" placeholder="Teeth Loss 0-15" onclick="reco()" required>
                         </div>
+                                         <script>
+        function reco() {
+            var recognition = new webkitSpeechRecognition();
+            recognition.lang = "en-US";
+
+            recognition.onresult = function (event) {
+                // console.log(event);
+                document.getElementById('spe').value = event.results[0][0].transcript;
+            }
+            recognition.start();
+
+        }
+    </script>
+                    
+
                         <div class="form-group col-lg-7 mb-2">
-                            <input type="text" class="form-control" name="PD" placeholder="Probing Depth" required>
+                            <input type="number"min="1"max="16" class="form-control" name="PD" id="spee"placeholder="Probing Depth 1-16"  onclick="records()"required>
                         </div>
+                                         <script>
+        function records() {
+            var recognition = new webkitSpeechRecognition();
+            recognition.lang = "en-US";
+
+            recognition.onresult = function (event) {
+                // console.log(event);
+                document.getElementById('spee').value = event.results[0][0].transcript;
+            }
+            recognition.start();
+
+        }
+    </script>
                         <div class="form-group col-lg-7  mb-2">
                             <input type="submit" name="save" value="check" class="btn btn-dark btn-block py-2 font-weight-bold">
                         </div>
